@@ -1,0 +1,34 @@
+@mixin resetList {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-value, $max-value) {
+	$factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
+	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
+
+	font-size: $min-value; // Fallback for older browsers
+	font-size: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+}
+
+@mixin square($sideSize, $bgColor) {
+    height: $sideSize;
+    width: $sideSize;
+    background-color: $bgColor;
+    
+}
+
+@mixin forLargeDesktop {
+    @media(max-width: 1200){
+        @content;
+    }
+    
+}
+
+@mixin forTablet {
+    @media(max-width: 992){
+        @content;
+    }
+    
+}
