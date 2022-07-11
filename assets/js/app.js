@@ -5,7 +5,7 @@ let weatherLoader = document.querySelector(".weather__loader")
 let showLoaderTime = 800
 let map = ''
 
-let apiUrl = 'http://api.weatherapi.com/v1/forecast.json?key=b765b0f794c749988ea74040220907&aqi=no&&days=4&q='
+let apiUrl = 'https://api.weatherapi.com/v1/forecast.json?key=b765b0f794c749988ea74040220907&aqi=no&&days=4&q='
 
 
 weatherForm.addEventListener('submit', (event) => {
