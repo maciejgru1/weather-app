@@ -4,10 +4,32 @@
 
 body {
     margin: 0;
-    overflow: hidden;
     font-family: $mainFontFamiliy;
-}
+    overflow-x: hidden;
+}   
 
 h1,h2,h3,h4,h5,h6{
     font-family: $headerFontFamily;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #838391 #a6a7b8;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #a6a7bc;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a6a7bc;
+    border-radius: 10px;
+    border: 0px none #ffffff;
+  }

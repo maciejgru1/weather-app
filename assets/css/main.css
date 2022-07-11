@@ -5,12 +5,34 @@
 
 body {
   margin: 0;
-  overflow: hidden;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Slab", serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lobster", cursive;
+  font-family: "Bebas Neue", cursive;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #838391 #a6a7b8;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #a6a7bc;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a6a7bc;
+  border-radius: 10px;
+  border: 0px none #ffffff;
 }
 
 .weather {
@@ -18,6 +40,9 @@ h1, h2, h3, h4, h5, h6 {
   display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -47,4 +72,231 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 30px;
   font-size: clamp(30px, 18px + 4vw, 66px);
   margin: 0 0 30px 0;
+}
+.weather__city {
+  padding: 10px;
+  text-align: center;
+  outline: none;
+  max-width: 500px;
+  min-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+  border: 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+.weather__mainInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  gap: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+}
+.weather__temp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.weather__temp .degree {
+  font-size: 40px;
+  font-weight: 700;
+}
+.weather__temp .unit {
+  font-size: 20px;
+}
+.weather__data p {
+  font-size: 14px;
+  margin: 0 0 5px 0;
+}
+.weather__data p:last-of-type {
+  margin: 0;
+}
+.weather__next {
+  color: #ffffff;
+  font-size: 20px;
+  font-size: clamp(20px, 13.3333333333px + 2.2222222222vw, 40px);
+  text-align: center;
+}
+.weather__days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  gap: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+}
+.weather__day {
+  color: #ffffff;
+  text-align: center;
+}
+.weather__loader {
+  display: none;
+}
+.weather__error {
+  background-color: red;
+  color: white;
+  font-weight: 700px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 18px;
+}
+.weather__map {
+  height: 440px;
+  width: 100%;
+  border-radius: 15px;
+}
+.weather__leftside {
+  width: 50%;
+  padding: 0 30px;
+}
+.weather__rightside {
+  width: 50%;
+  padding: 0 30px;
+}
+.weather__api {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 30px -30px 60px -30px;
+}
+@media (max-width: 800px) {
+  .weather__rightside {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .weather__leftside {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    overflow-y: scroll;
+  }
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  -webkit-animation: lds-ellipsis1 0.6s infinite;
+          animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  -webkit-animation: lds-ellipsis3 0.6s infinite;
+          animation: lds-ellipsis3 0.6s infinite;
+}
+
+@-webkit-keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
 }

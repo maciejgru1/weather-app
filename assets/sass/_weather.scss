@@ -1,6 +1,10 @@
+
 .weather{
     display: flex;
     min-height: 100vh;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -14,10 +18,133 @@
         min-height: 100%;
         z-index: -1;
         object-fit: cover;
-    };
+    }
     &__header{
         color: $weatherHeaderColor;
         @include fluid-type(300px, 1200px, 30px, 66px);
         margin: 0 0 30px 0;
+    }
+
+
+    &__city{
+        padding: 10px;
+        text-align: center;
+        outline: none;
+        max-width: 500px;
+        min-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+        border: 0;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+    &__mainInfo{
+        display: flex;
+        border-radius: 20px;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.3);
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        color: $weatherTextColor;
+    }
+    &__temp{
+        display: flex;
+        .degree{
+            font-size: 40px;
+            font-weight: 700;
+        }
+        .unit{
+            font-size: 20px
+        }
+    }
+    &__data{
+        p{
+            font-size: 14px;
+            margin: 0 0 5px 0;
+            &:last-of-type{
+                margin: 0;
+            }
+        }
+    }
+
+    &__next{
+        color: $weatherHeaderColor;
+        @include fluid-type(300px, 1200px, 20px, 40px);
+        text-align: center;
+    }
+
+    &__days{
+        display: flex;
+        border-radius: 20px;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.3);
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        color: $weatherTextColor;
+    }
+
+    &__day{
+        color: $weatherTextColor;
+        text-align: center;
+    }
+
+    &__loader{
+        display: none;
+    }
+
+    &__error{
+        background-color: red;
+        color: white;
+        font-weight: 700px;
+        padding: 10px;
+        margin: 20px;
+        font-size: 18px;
+    }
+
+    &__map{
+        height: 440px;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    &__leftside{
+        width: 50%;
+        padding: 0 30px;
+    }
+
+    &__rightside{
+        width: 50%;
+        padding: 0 30px;
+    }
+
+    &__api{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px -30px 60px -30px;
+    }
+
+    @media(max-width: 800px){
+        &__rightside{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        &__leftside{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+    }
+
+}
+
+@media(max-width: 800px){
+    body {
+        overflow-y: scroll;
     }
 }
